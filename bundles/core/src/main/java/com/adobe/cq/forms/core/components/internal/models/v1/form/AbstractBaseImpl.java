@@ -20,6 +20,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
@@ -249,7 +250,7 @@ public abstract class AbstractBaseImpl extends AbstractBaseConstraintImpl implem
     }
 
     @Override
-    public @NotNull Map<ConstraintType, String> getConstraintsMessages() {
+    public @NotNull Map<ConstraintType, String> getConstraintMessages() {
         if (constraintMessages == null) {
             constraintMessages = new LinkedHashMap<>();
             ConstraintMessages msgs = new ConstraintMessagesProvider();
@@ -260,6 +261,11 @@ public abstract class AbstractBaseImpl extends AbstractBaseConstraintImpl implem
                 put(ConstraintType.MAX_LENGTH, msgs.getMaxLengthConstraintMessage());
                 put(ConstraintType.PATTERN, msgs.getPatternConstraintMessage());
                 put(ConstraintType.FORMAT, msgs.getFormatConstraintMessage());
+                String format = this.getFormat();
+                if (format != null && format.equals(Format.DATE.toString())) {
+                    put(ConstraintType.MINIMUM, msgs.getMinimumConstraintMessage());
+                    put(ConstraintType.MAXIMUM, msgs.getMaximumConstraintMessage());
+                }
             }
 
             if (this.getType().equals(Type.NUMBER)) {

@@ -87,4 +87,9 @@ public interface Field extends Base, BaseConstraint {
      */
     Object getDefault();
 
+
+    String getFormContainer();
+
+    String getId();
+
 }

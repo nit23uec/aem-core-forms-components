@@ -16,6 +16,7 @@
 package com.adobe.cq.forms.core.components.internal.models.v1.form;
 
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceMetadata;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
@@ -88,6 +89,22 @@ public abstract class AbstractFieldImpl extends AbstractBaseImpl implements Fiel
     @Nullable
     public String getDataFormat() {
         return dataFormat;
+    }
+
+    @Override
+    @Nullable
+    public String getFormContainer() {
+        Resource parent = resource.getParent();
+        if (parent != null) {
+            return parent.getPath();
+        }
+        return null;
+    }
+
+    @Override
+    @Nullable
+    public String getId() {
+        return resource.getPath();
     }
 
 }
