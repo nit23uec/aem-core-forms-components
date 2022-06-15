@@ -6,6 +6,7 @@
   "readOnly": false,
   "fieldType": "text-input",
   "description" : "dummy",
+  "id":"/content/textinput",
   "label": {
     "visible": true,
     "value": "def",

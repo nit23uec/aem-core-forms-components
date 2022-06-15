@@ -7,6 +7,7 @@
       "enabled": true,
       "readOnly": false,
       "fieldType": "text-input",
+      "id":"/content/formcontainer/textinput",
       "label": {
         "visible": true,
         "richText": false,

@@ -6,6 +6,7 @@
   "readOnly": false,
   "fieldType": "multiline-input",
   "description" : "dummy",
+  "id":"/content/multiline-textinput",
   "label": {
     "visible": true,
     "value": "def",

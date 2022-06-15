@@ -15,6 +15,7 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 package com.adobe.cq.forms.core.components.models.form;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
@@ -87,7 +88,7 @@ public interface Field extends Base, BaseConstraint {
      */
     Object getDefault();
 
-
+    @JsonIgnore
     String getFormContainer();
 
     String getId();
